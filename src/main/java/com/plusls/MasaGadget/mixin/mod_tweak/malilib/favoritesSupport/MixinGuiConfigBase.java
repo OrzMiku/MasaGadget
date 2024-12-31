@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import top.hendrixshen.magiclib.api.i18n.I18n;
 import top.hendrixshen.magiclib.util.collect.ValueContainer;
 
-//#if MC > 11902
+//#if MC > 11902 && MC < 12101
 //$$ import org.spongepowered.asm.mixin.Intrinsic;
 //#endif
 
@@ -25,8 +25,17 @@ public abstract class MixinGuiConfigBase extends GuiListBase<GuiConfigsBase.Conf
         super(listX, listY);
     }
 
-    //#if MC > 11902
+    //#if MC > 11902 && MC < 12101
     //$$ @Intrinsic
+    //$$ @Override
+    //$$ public void initGui() {
+    //$$     super.initGui();
+    //$$ }
+    //$$
+    //$$ @SuppressWarnings({"MixinAnnotationTarget", "UnresolvedMixinReference"})
+    //#endif
+
+    //#if MC >= 12101
     //$$ @Override
     //$$ public void initGui() {
     //$$     super.initGui();
